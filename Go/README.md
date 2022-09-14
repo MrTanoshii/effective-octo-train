@@ -17,4 +17,7 @@ go mod tidy -v
 
 # Run
 go run .
+
+# Build
+go build
 ```

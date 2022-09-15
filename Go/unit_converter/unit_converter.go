@@ -1,4 +1,4 @@
-package name
+package main
 
 import "github.com/MrTanoshii/effective-octo-train/Go/unit_converter/lib"
 

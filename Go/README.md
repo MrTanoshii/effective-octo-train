@@ -27,3 +27,10 @@ go build -ldflags="-s -w" main.go
 # Build Optimization (Linux Commands)
 GOOS=linux go build -ldflags="-s -w" main.go
 ```
+
+## App list
+
+| Directory      | Purpose             |
+| -------------- | ------------------- |
+| hello_world    | Basic hello world   |
+| unit_converter | Learn about modules |

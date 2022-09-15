@@ -20,4 +20,10 @@ go run .
 
 # Build
 go build
+
+# Build Optimization (Windows Commands)
+go build -ldflags="-s -w" main.go
+
+# Build Optimization (Linux Commands)
+GOOS=linux go build -ldflags="-s -w" main.go
 ```

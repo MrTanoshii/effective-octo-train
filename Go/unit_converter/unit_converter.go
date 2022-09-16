@@ -18,11 +18,12 @@ func main() {
 
 	flag.Parse()
 
+	fmt.Println()
 	fmt.Println("~~ Unit Converter ~~")
-	fmt.Println()
 
-	fmt.Println("Received command:", command, "with values: ", value)
 	fmt.Println()
+	fmt.Println("Received command:", command)
+	fmt.Println("Received value:", value)
 
 	// Accept only 3 arguments in the command
 	commandArray := strings.Split(command, " ")
@@ -30,18 +31,34 @@ func main() {
 		return
 	}
 
+	var conversionRate float64
 	switch commandArray[0] {
 	case "length":
-		fmt.Println("Converter check: [Found]")
+		fmt.Println()
+		fmt.Println("[Found] Converter")
+
+		conversionRate = lib.UnitToConversionRate(commandArray[1], commandArray[2])
+		if conversionRate == 0.0 {
+			fmt.Println("[Invalid] Conversion units")
+			return
+		} else {
+			fmt.Println("[Found] Conversion units (rate:", conversionRate, ")")
+		}
 	default:
-		fmt.Println("Invalid command. Please try again.")
+		fmt.Println("[Invalid] Converter")
 		return
 	}
 
-	var conversionRate float64 = lib.UnitToConversionRate(commandArray[1], commandArray[2])
-	if conversionRate == 0.0 {
-		return
-	} else {
-		fmt.Println("Conversion rate from", commandArray[1], "to", commandArray[2], "is", conversionRate)
+	if commandArray[0] == "length" {
+		fmt.Println()
+		displayResult(commandArray, value, conversionRate)
 	}
+
+	fmt.Println()
+	fmt.Println("~~ Goodbye ~~")
+	fmt.Println()
+}
+
+func displayResult(commandArray []string, value float64, conversionRate float64) {
+	fmt.Println(value, commandArray[1], "=", lib.LengthConverter(value, conversionRate), commandArray[2])
 }

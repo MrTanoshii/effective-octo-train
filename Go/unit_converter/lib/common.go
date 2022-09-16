@@ -15,9 +15,11 @@ func UnitToConversionRate(unit1 string, unit2 string) float64 {
 	for k, v := range constants.UnitsLength {
 		if !foundUnit1 && k == unit1 {
 			rate1 = v
+			foundUnit1 = true
 		}
 		if !foundUnit2 && k == unit2 {
 			rate2 = v
+			foundUnit2 = true
 		}
 
 		// Both units found
